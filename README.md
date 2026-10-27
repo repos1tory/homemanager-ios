@@ -1,5 +1,7 @@
 # HomeManager
 
+Source: [repos1tory/homemanager-ios](https://github.com/repos1tory/homemanager-ios).
+
 Rootless SpringBoard tweak for the iPad 6th generation running iPadOS 17.7.8. While Home Screen icons are in edit mode, tap removable app or Safari “Add to Home Screen” web app icons to select or deselect them. A blue checkmark marks each selection; the top bar shows the count and offers Cancel and Delete.
 
 Delete opens one confirmation alert listing every selected app or web app. HomeManager follows SpringBoard/LaunchServices uninstall eligibility, including offloaded app placeholders. App icons installed through Sileo or Zebra are treated like other registered apps: only application/web clip icons that SpringBoard recognizes and marks removable are exposed. This does not manage Debian packages, tweak bundles, dylibs, daemons, dependencies, or bootstrap components. Deletion uses OS application/icon removal services and never invokes dpkg or removes files directly.
