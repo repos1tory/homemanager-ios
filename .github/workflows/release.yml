@@ -8,6 +8,10 @@ on:
       tag:
         description: "Tag to release (e.g. v0.2.1)"
         required: true
+      publish:
+        description: "Create the release and update the APT repo"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -17,6 +21,7 @@ jobs:
     uses: repos1tory/repos1tory.github.io/.github/workflows/publish-tweak.yml@main
     with:
       tag: ${{ github.event.inputs.tag || github.ref_name }}
+      publish: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.publish == 'true' }}
       build_command: "rm -rf packages && make package FINALPACKAGE=1"
       deb_glob: "packages/com.alsinas.homemanager_*.deb"
       group: tweaks
