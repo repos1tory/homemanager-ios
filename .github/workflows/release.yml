@@ -1,0 +1,24 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (e.g. v0.2.1)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    uses: repos1tory/repos1tory.github.io/.github/workflows/publish-tweak.yml@main
+    with:
+      tag: ${{ github.event.inputs.tag || github.ref_name }}
+      build_command: "rm -rf packages && make package FINALPACKAGE=1"
+      deb_glob: "packages/com.alsinas.homemanager_*.deb"
+      group: tweaks
+      theos: true
+    secrets: inherit
