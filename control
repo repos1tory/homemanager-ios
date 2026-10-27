@@ -1,0 +1,11 @@
+Package: com.alsinas.homemanager
+Name: HomeManager
+Version: 0.2.0
+Architecture: iphoneos-arm64
+Description: Select and remove multiple removable Home Screen apps and web apps
+Maintainer: alsinas
+Author: alsinas
+Section: Tweaks
+Depends: ellekit (>= 1.2), firmware (>= 15.0)
+Replaces: com.alsinas.multidelete
+Conflicts: com.alsinas.multidelete
